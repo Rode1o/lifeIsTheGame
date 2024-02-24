@@ -5,8 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject bullet;
+    public float rotationSpeed = 1;
 
-    public float shootForce, upwardForce;
+    public float shootForce;
 
     public float timeBetweenShooting, spread, reloadTime, timeBetweenShoot;
     public int magazineSize, bulletsPerTap;
@@ -64,10 +65,11 @@ public class Projectile : MonoBehaviour
         Vector3 directionWithOutSpread = targetPoint - attackPoint.position;
 
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        //currentBullet.GetComponent<Rigidbody>().velocity = attackPoint.transform.up * shootForce;
         currentBullet.transform.forward = directionWithOutSpread;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithOutSpread * shootForce, ForceMode.Impulse);
-         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+        // currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
         bulletsLeft --;
         bulletsShot ++;
 

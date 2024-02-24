@@ -66,8 +66,8 @@ public class PickUpController : MonoBehaviour
 
         rb.isKinematic = false;
         coll.isTrigger = false;
-
-        rb.velocity= player.GetComponent<Rigidbody>().velocity;
+        
+        //rb.velocity= player.GetComponent<Rigidbody>().velocity;
         rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(fpsCam.up * dropUpForwardForce, ForceMode.Impulse);
 
