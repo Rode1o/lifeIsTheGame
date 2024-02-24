@@ -5,6 +5,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject bullet;
+
+    public static Projectile instance;
+
+    private List<GameObject> pool = new List<GameObject>();
     public float rotationSpeed = 1;
 
     public float shootForce;
@@ -24,8 +28,21 @@ public class Projectile : MonoBehaviour
     public bool allowInvoke = true;
 
     private void Awake() {
+        if (instance == null)
+        {
+            instance = this;
+        }
         bulletsLeft = magazineSize;
         readyToShoot = true;
+    }
+
+    private void Start() {
+        for (int i = 0; i < magazineSize; i++)
+        {
+            GameObject obj = Instantiate(bullet, attackPoint.position, Quaternion.identity, attackPoint.position, Quaternion.identity);
+            obj.SetActive(false);
+            pool.Add(obj);
+        }
     }
 
     private void Update() {
@@ -64,8 +81,14 @@ public class Projectile : MonoBehaviour
 
         Vector3 directionWithOutSpread = targetPoint - attackPoint.position;
 
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
-        //currentBullet.GetComponent<Rigidbody>().velocity = attackPoint.transform.up * shootForce;
+        GameObject currentBullet = pool.instance.GetPooledObject();
+
+        if (currentBullet == null)
+        {
+            return;
+
+        }
+        currentBullet.SetActive(true);
         currentBullet.transform.forward = directionWithOutSpread;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithOutSpread * shootForce, ForceMode.Impulse);
@@ -89,5 +112,19 @@ public class Projectile : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
+    }
+
+    public GameObject GetPooledObject()
+    {
+
+        for (int i = 0; i < pool.Count; i++)
+        {
+            if (!pool[i].activeInHierarchy)
+            {
+                return pool[i];
+            }
+            
+        }
+        return null;
     }
 }
