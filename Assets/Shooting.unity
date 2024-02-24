@@ -995,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4142240891869628403, guid: 1feb534a6be19534f8d75b889a478b50, type: 3}
       propertyPath: magazineSize
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4142240891869628403, guid: 1feb534a6be19534f8d75b889a478b50, type: 3}
       propertyPath: rotationSpeed
@@ -2122,7 +2122,7 @@ GameObject:
   - component: {fileID: 1194124513}
   m_Layer: 3
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Grounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

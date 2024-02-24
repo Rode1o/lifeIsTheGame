@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject bullet;
-
     public static Projectile instance;
+    public GameObject bullet;
 
     private List<GameObject> pool = new List<GameObject>();
     public float rotationSpeed = 1;
@@ -39,7 +38,7 @@ public class Projectile : MonoBehaviour
     private void Start() {
         for (int i = 0; i < magazineSize; i++)
         {
-            GameObject obj = Instantiate(bullet, attackPoint.position, Quaternion.identity, attackPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(bullet, attackPoint.position, Quaternion.identity);
             obj.SetActive(false);
             pool.Add(obj);
         }
@@ -59,6 +58,20 @@ public class Projectile : MonoBehaviour
             bulletsShot = 0;
             Shoot();
         }
+    }
+
+    public GameObject GetPooledObject()
+    {
+
+        for (int i = 0; i < pool.Count; i++)
+        {
+            if (!pool[i].activeInHierarchy)
+            {
+                return pool[i];
+            }
+            
+        }
+        return null;
     }
 
     private void Shoot()
@@ -81,7 +94,7 @@ public class Projectile : MonoBehaviour
 
         Vector3 directionWithOutSpread = targetPoint - attackPoint.position;
 
-        GameObject currentBullet = pool.instance.GetPooledObject();
+        GameObject currentBullet = GetPooledObject();
 
         if (currentBullet == null)
         {
@@ -112,19 +125,5 @@ public class Projectile : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
-    }
-
-    public GameObject GetPooledObject()
-    {
-
-        for (int i = 0; i < pool.Count; i++)
-        {
-            if (!pool[i].activeInHierarchy)
-            {
-                return pool[i];
-            }
-            
-        }
-        return null;
     }
 }
