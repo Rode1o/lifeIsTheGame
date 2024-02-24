@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45126396, g: 0.5000687, b: 0.56862646, a: 1}
+  m_IndirectSpecularColor: {r: 0.45133638, g: 0.50026345, b: 0.5693223, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,14 +225,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381957056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2061832175}
   - {fileID: 1056967527}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -320,13 +320,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.6935981, y: 0.41065985, z: 0.31557736, w: 0.50069064}
+  m_LocalRotation: {x: 0.8946851, y: -0.0022620696, z: 0.371541, w: 0.2479734}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 25.809, y: 109.428, z: 100.324}
+  m_LocalEulerAnglesHint: {x: 26.449, y: 132.159, z: 168.388}
 --- !u!1 &708910718
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +669,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 890327304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1777653326}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: AcceptChanges
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &890327304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,7 +1599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632913975
 GameObject:
@@ -1773,7 +1785,7 @@ Transform:
   m_Children:
   - {fileID: 1858087255}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1777653326
 MonoBehaviour:
@@ -1790,6 +1802,7 @@ MonoBehaviour:
   Select_Dance_1: {fileID: 951414407}
   Select_Dance_2: {fileID: 1385714930}
   Select_Dance_3: {fileID: 1003619804}
+  Accept: {fileID: 0}
 --- !u!1 &1858087254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,6 +1976,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1de426a1eb98ad740ae160f062b29266, type: 3}
+--- !u!1 &1912612256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1de426a1eb98ad740ae160f062b29266, type: 3}
+  m_PrefabInstance: {fileID: 1912612255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1912612257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912612256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d6d43ccc43adf4b872c841d1c4e5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061832174
 GameObject:
   m_ObjectHideFlags: 0

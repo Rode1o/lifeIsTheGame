@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Button Select_Dance_1;
     [SerializeField] private Button Select_Dance_2;
     [SerializeField] private Button Select_Dance_3;
+    [SerializeField] private Button Accept;
     void Start()
     {
         GameObject player = GameObject.Find("player");
@@ -48,6 +50,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("b_Macarena_Dance", false);
         }
          
+    }
+
+    public void AcceptChanges()
+    {
+         SceneManager.LoadScene("Shooting");
     }
 
 }
